@@ -19,13 +19,14 @@
         score.wins = 0;
         score.losses = 0;
         score.ties = 0;
+        localStorage.removeItem('score');
       "
     >
       RESET
     </button>
 
     <script>
-      score = {
+      let score = JSON.parse(localStorage.getItem("score")) || {
         wins: 0,
         losses: 0,
         ties: 0,
@@ -52,6 +53,8 @@
         if (result === "Tie") {
           score.ties++;
         }
+
+        localStorage.setItem("score", JSON.stringify(score));
 
         alert(
           `You picked ${playerMove}.\nComputer picked ${computerMove}.\nResult: ${result}\nWins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`,
