@@ -29,8 +29,11 @@ function playGame(playerMove) {
 
   document.querySelector(".js-result").innerHTML = result;
 
-  document.querySelector(".js-moves").innerHTML =
-    `You picked ${playerMove}.<br>Computer picked ${computerMove}.`;
+  document.querySelector(".js-moves").innerHTML = `You picked
+    <img class="move-icon" src="thumbnail/${playerMove}.jpg" alt="${playerMove}" />\n 
+    Computer
+    Picked
+    <img class="move-icon" src="thumbnail/${computerMove}.jpg" alt="${computerMove}" />`;
 }
 
 function updateScoreElement() {
@@ -48,4 +51,14 @@ function pickComputerMove() {
   } else {
     return "scissors";
   }
+}
+
+function resetScore() {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  localStorage.removeItem("score");
+  updateScoreElement();
+  document.querySelector(".js-result").innerHTML = "";
+  document.querySelector(".js-moves").innerHTML = "";
 }

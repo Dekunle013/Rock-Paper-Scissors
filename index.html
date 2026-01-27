@@ -8,32 +8,26 @@
     <link rel="stylesheet" href="style/index.css" />
   </head>
   <body>
-    <p>Rock Paper Scissors</p>
+    <p class="title">Rock Paper Scissors</p>
 
-    <button onclick="playGame('rock')">ROCK</button>
+    <button class="move-button" onclick="playGame('rock')">
+      <img src="thumbnail/rock.jpg" alt="ROCK" />
+    </button>
 
-    <button onclick="playGame('paper')">PAPER</button>
+    <button class="move-button" onclick="playGame('paper')">
+      <img src="thumbnail/paper.jpg" alt="PAPER" />
+    </button>
 
-    <button onclick="playGame('scissors')">SCISSORS</button>
+    <button class="move-button" onclick="playGame('scissors')">
+      <img src="thumbnail/scissors.jpg" alt="SCISSORS" />
+    </button>
 
-    <p class="js-result"></p>
+    <p class="js-result result"></p>
 
     <p class="js-moves"></p>
 
     <p class="js-score"></p>
 
-    <button
-      onclick="
-        score.wins = 0;
-        score.losses = 0;
-        score.ties = 0;
-        localStorage.removeItem('score');
-        updateScoreElement();
-        document.querySelector('.js-result').innerHTML = '';
-        document.querySelector('.js-moves').innerHTML = '';
-      "
-    >
-      RESET
-    </button>
+    <button class="reset-button" onclick="resetScore()">RESET</button>
   </body>
 </html>
